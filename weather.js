@@ -1,23 +1,25 @@
 #!/usr/bin/env node
-import { getArgs } from "./helpers/args.js";
-import { printHelp } from "./services/log.service.js";
+import { getArgs } from './helpers/args.js';
+import { printHelp } from './services/log.service.js';
+import { saveKeyValue } from './services/storage.service.js';
 
 const initCLI = () => {
-    const args = getArgs(process.argv);
-    if(args.h) {
-        // Вывод help
-        printHelp()
-    };
+  const args = getArgs(process.argv);
+  if (args.h) {
+    // Вывод help
+    printHelp();
+  }
 
-    if(args.s) {
-        // Сохранить город
-    };
+  if (args.s) {
+    // Сохранить город
+  }
 
-    if(args.t) {
-        // Сохранить токен
-    };
+  if (args.t) {
+    // Сохранить токен
+    saveKeyValue('token', args.t);
+  }
 
-    // Вывести погоду
-}
+  // Вывести погоду
+};
 
 initCLI();
